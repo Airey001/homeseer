@@ -110,7 +110,7 @@ async def async_setup_entry(hass, config_entry):
 
     for platform in HOMESEER_PLATFORMS:
         hass.async_create_task(
-            hass.config_entries.async_forward_entry_setups(config_entry, platform)
+            hass.config_entries.async_forward_entry_setup(config_entry, platform)
         )
 
     hass.bus.async_listen_once("homeassistant_stop", bridge.stop)
